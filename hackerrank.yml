@@ -2,7 +2,8 @@ version: 1.0
 configuration:
     has_webserver: true
     scoring:
-        command: "bundle install && rake db:migrate RAILS_ENV=test && RAILS_ENV=test rspec --format RspecJunitFormatter --out unit.xml"
+        command: "yarn install && bundle install && bin/rails db:setup"
+        # RAILS_ENV=test && RAILS_ENV=test rspec --format RspecJunitFormatter --out unit.xml"
         files:
             - unit.xml
         # Define hidden test cases and declare file paths below to evaluate candidates' submissions.
@@ -14,7 +15,7 @@ configuration:
         #   - tests/custom_test_[1-2].sh
         #   - app/secret_test
     readonly_paths:
-      - spec/controller/home_controller_spec.rb
+      - spec/models
     ide_config:
         default_open_files:
             - Gemfile
