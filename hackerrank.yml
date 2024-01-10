@@ -2,7 +2,7 @@ version: 1.0
 configuration:
     has_webserver: true
     scoring:
-        command: "yarn install && bundle install && bin/rails db:setup && RAILS_ENV=test rspec --format RspecJunitFormatter --out unit.xml"
+        command: "npm install && bundle install && bin/rails db:setup && RAILS_ENV=test rspec --format RspecJunitFormatter --out unit.xml"
         # RAILS_ENV=test && RAILS_ENV=test rspec --format RspecJunitFormatter --out unit.xml"
         files:
             - unit.xml
@@ -21,5 +21,5 @@ configuration:
             - Gemfile
         project_menu:
             run: rails server -b 0.0.0.0
-            install: bundle install
+            install: bundle install && npm install
             test: RAILS_ENV=test rspec --format RspecJunitFormatter --out unit.xml
