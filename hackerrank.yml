@@ -14,7 +14,7 @@ configuration:
         #   - tests/custom_test_[1-2].sh
         #   - app/secret_test
     readonly_paths:
-      - spec/controller/home_controller_spec.rb
+      - spec/models
     ide_config:
         default_open_files:
             - Gemfile
