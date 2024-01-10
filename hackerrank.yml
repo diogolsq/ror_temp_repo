@@ -2,7 +2,7 @@ version: 1.0
 configuration:
     has_webserver: true
     scoring:
-        command: "bundle install && sudo apt install libpq-dev && sudo yum install postgresql-devel && sudo zypper in postgresql-devel && sudo pacman -S postgresql-libs && rake db:migrate RAILS_ENV=test && RAILS_ENV=test rspec --format RspecJunitFormatter --out unit.xml"
+        command: "bundle install && rake db:migrate RAILS_ENV=test && RAILS_ENV=test rspec --format RspecJunitFormatter --out unit.xml"
         files:
             - unit.xml
         # Define hidden test cases and declare file paths below to evaluate candidates' submissions.
@@ -13,10 +13,12 @@ configuration:
         # hidden_files_paths:
         #   - tests/custom_test_[1-2].sh
         #   - app/secret_test
+    readonly_paths:
+      - spec/controller/home_controller_spec.rb
     ide_config:
         default_open_files:
             - Gemfile
         project_menu:
             run: rails server -b 0.0.0.0
-            install: bundle install 
+            install: bundle install
             test: RAILS_ENV=test rspec --format RspecJunitFormatter --out unit.xml
