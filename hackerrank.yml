@@ -2,7 +2,7 @@ version: 1.0
 configuration:
     has_webserver: true
     scoring:
-        command: "yarn install && bundle install && bin/rails db:setup"
+        command: "yarn install && bundle install && bin/rails db:setup && RAILS_ENV=test rspec --format RspecJunitFormatter --out unit.xml"
         # RAILS_ENV=test && RAILS_ENV=test rspec --format RspecJunitFormatter --out unit.xml"
         files:
             - unit.xml
